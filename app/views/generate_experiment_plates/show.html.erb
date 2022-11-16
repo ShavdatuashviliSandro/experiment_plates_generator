@@ -16,32 +16,28 @@
     <div class="row">
       <div class="col">
         <h1>Plate 1</h1>
-        <% @result.length.times do %>
+        <%plate_quantity = @result.length %>
+        <%column_quantity = @result[0][0].length %>
+
+        <% plate_quantity.times do |plate|%>
           <table class="table table-bordered">
             <thead>
             <tr>
               <th scope="col"></th>
-              <% @result[0][0].length.times do |column_number| %>
+              <% column_quantity.times do |column_number| %>
                 <th scope="col"><%= column_number + 1 %></th>
               <% end %>
             </tr>
             </thead>
             <tbody>
-            <% @result[0].length.times do |row_number| %>
+            <% @result[plate].length.times do |row_number| %>
               <tr>
                 <th scope="row"><%= row_number+1 %></th>
-                <th scope="row">Sample X Reagent</th>
-                <th scope="row">Sample X Reagent</th>
-                <th scope="row">Sample X Reagent</th>
-                <th scope="row">Sample X Reagent</th>
-                <th scope="row">Sample X Reagent</th>
-                <th scope="row">Sample X Reagent</th>
-                <th scope="row">Sample X Reagent</th>
-                <th scope="row">nil</th>
-                <th scope="row">nil</th>
-                <th scope="row">nil</th>
-                <th scope="row">nil</th>
-                <th scope="row">nil</th>
+                <%column_quantity.times do %>
+                  <th scope="row">
+                    სისხლი X შარდი
+                  </th>
+                <% end %>
               </tr>
             <% end %>
 

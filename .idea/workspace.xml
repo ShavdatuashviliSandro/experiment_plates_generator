@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="705a4d70-e25c-464d-b554-ec51f25d285c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/generate_experiment_plates/experiment_plate_service.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/_form.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/edit.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/index.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/new.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/show.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/initializers/pagy.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/generate_experiment_plates_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/generate_experiment_plates_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/generate_experiment_plates/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +170,7 @@
       <workItem from="1668610128437" duration="4704000" />
       <workItem from="1668614853058" duration="1095000" />
       <workItem from="1668617760167" duration="5726000" />
+      <workItem from="1668626853734" duration="3368000" />
     </task>
     <servers />
   </component>

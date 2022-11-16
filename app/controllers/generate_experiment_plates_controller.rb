@@ -10,7 +10,7 @@ class GenerateExperimentPlatesController < ApplicationController
     plate_size = 96
     all_samples = [['სისხლი', 'უჯრედი', 'შარდი'], ['განავალი', 'ლორწო']]
     all_reagents = [['რკინა', 'ქლორი'], ['ვერცხლი', 'ნატრიუმი']]
-    replicates = [5, 123]
+    replicates = [24, 9]
     @result = generate_experiment_plate(plate_size, all_samples, all_reagents, replicates)
     @result
     # binding.pry
