@@ -1,55 +1,32 @@
-# frozen_string_literal: true
+module GenerateExperimentPlates
 
-module Items
-
-  # Created Item Service Class
-  class ItemService
+  class ExperimentPlateService
     attr_reader :current_user, :result
 
     def initialize(current_user)
       @current_user = current_user
-      @result = OpenStruct.new(success?: false, item: Item.new)
+      @result = OpenStruct.new(success?: false, experiment_plate: ExperimentPlate.new)
     end
 
     def list
-      Item.all.order(created_at: :desc)
+      ExperimentPlate.all
     end
 
     def new
       result
     end
 
-    def edit(id)
-      find_record(id)
-    end
-
     def create(params)
       result.tap do |r|
-        r.item = Item.new(params)
-        r.send('success?=', r.item.save)
-      end
-    end
-
-    def update(id, params)
-      find_record(id)
-
-      result.tap do |r|
-        r.send('success?=', r.item.update(params))
-      end
-    end
-
-    def delete(id)
-      find_record(id)
-
-      result.tap do |r|
-        r.send('success?=', r.item.destroy)
+        r.experiment_plate = ExperimentPlate.new(params)
+        r.send('success?=', r.experiment_plate.save)
       end
     end
 
     private
 
     def find_record(id)
-      result.item = Item.find(id)
+      result.experiment_plate = ExperimentPlate.find(id)
       result
     end
   end

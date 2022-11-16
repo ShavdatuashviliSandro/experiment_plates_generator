@@ -1,0 +1,2 @@
+class ExperimentPlate < ApplicationRecord
+end

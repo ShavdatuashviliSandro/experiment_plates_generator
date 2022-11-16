@@ -1,0 +1,56 @@
+<div style="float:right;">
+  <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+</div>
+<br>
+<br>
+<br>
+<a href="<%= root_url %>">Back</a>
+<div class="row">
+  <p id="notice"><%= notice %></p>
+</div>
+
+<br/>
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h1>Plate 1</h1>
+        <% @result.length.times do %>
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th scope="col"></th>
+              <% @result[0][0].length.times do |column_number| %>
+                <th scope="col"><%= column_number + 1 %></th>
+              <% end %>
+            </tr>
+            </thead>
+            <tbody>
+            <% @result[0].length.times do |row_number| %>
+              <tr>
+                <th scope="row"><%= row_number+1 %></th>
+                <th scope="row">Sample X Reagent</th>
+                <th scope="row">Sample X Reagent</th>
+                <th scope="row">Sample X Reagent</th>
+                <th scope="row">Sample X Reagent</th>
+                <th scope="row">Sample X Reagent</th>
+                <th scope="row">Sample X Reagent</th>
+                <th scope="row">Sample X Reagent</th>
+                <th scope="row">nil</th>
+                <th scope="row">nil</th>
+                <th scope="row">nil</th>
+                <th scope="row">nil</th>
+                <th scope="row">nil</th>
+              </tr>
+            <% end %>
+
+            </tbody>
+          </table>
+          <br>
+          <br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

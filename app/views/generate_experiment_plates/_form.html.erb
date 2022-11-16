@@ -1,18 +1,11 @@
 <br>
-<%= simple_form_for [:admin, item] do |f| %>
-  <%= f.input :name, label: 'ნივთის სახელი' %>
-  <%= f.association :type, label: 'ნივთის ტიპი' %>
-  <%= f.input :size, label: 'ნივთის ზომები'%>
-  <%= f.input :description, label: 'ნივთის აღწერა'%>
-  <%= f.input :price, label: 'ფასი' %>
-  <%= f.input :image, as: :file %>
-  <%= f.input :second_image, as: :file %>
-  <%= f.input :third_image, as: :file %>
-  <%= f.input :fourth_image, as: :file %>
-  <%= f.input :sale, label: 'ფასდაკლების გაკეთება (ფასდაკლების გასაუქმებლად ჩაწერეთ 0)' %>
+<%= simple_form_for :experiment_plate do |f| %>
+  <%= f.input :plate_size, label: 'Plate Size'%>
+  <%= f.input :sample, label: 'Sample' %>
+  <%= f.input :reagent, label: 'Reagent'%>
+  <%= f.input :number_of_replication, label: 'Replicate' %>
   <br>
-  <%= f.input :active, label: 'მარაგშია' %>
   <br>
-  <%= link_to 'უკან დაბრუნება',admin_items_path, class: 'btn btn-warning' %>
-  <%= f.button :submit, class: 'btn btn-primary', value: 'დამატება' %>
+  <%= link_to 'უკან დაბრუნება',root_url, class: 'btn btn-warning' %>
+  <%= f.button :submit, class: 'btn btn-primary', value: 'Create Experiment' %>
 <%  end %>
