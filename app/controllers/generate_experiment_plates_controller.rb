@@ -13,15 +13,14 @@ class GenerateExperimentPlatesController < ApplicationController
 
   def show
     @experiment_plate = ExperimentPlate.find(params[:id])
-    # all_samples = [['სისხლი', 'უჯრედი', 'შარდი'], ['განავალი', 'ლორწო'], ['ჩაი', 'ყავა']]
-    all_reagents = [['რკინა', 'ქლორი'], ['ვერცხლი', 'ნატრიუმი'], ['მჟავა', 'პავიდლო']]
 
     plate_size = return_data_for_plate_size(@experiment_plate)
     all_samples = return_data_for_experiment(@experiment_plate.sample)
     all_reagents = return_data_for_experiment(@experiment_plate.reagent)
     replicates = return_data_for_replicates(@experiment_plate)
+
     @result = generate_experiment_plate(plate_size, all_samples, all_reagents, replicates)
-    @result
+
   end
 
   def new
@@ -31,7 +30,7 @@ class GenerateExperimentPlatesController < ApplicationController
   def create
     @experiment_plate = ExperimentPlate.new(experiment_params)
     if @experiment_plate.save
-      redirect_to root_url, notice: 'წარმატებით შეიქმნა'
+      redirect_to root_url, notice: '✓ Experiment created'
     else
       render :new, status: :unprocessable_entity
     end
@@ -86,7 +85,6 @@ class GenerateExperimentPlatesController < ApplicationController
     else
       render partial: 'layouts/error'
     end
-
 
   end
 
@@ -165,7 +163,7 @@ class GenerateExperimentPlatesController < ApplicationController
     data = []
     experiment = experiment.split(' | ')
     experiment.length.times do |index|
-      single_sample=experiment[index].split
+      single_sample = experiment[index].split
       data << single_sample
     end
     data

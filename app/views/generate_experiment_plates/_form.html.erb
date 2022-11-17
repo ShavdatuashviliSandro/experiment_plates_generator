@@ -4,7 +4,7 @@
 
     <% if @experiment_plate.errors.any? %>
       <div id="error_explanation">
-        <p><%= pluralize(@experiment_plate.errors.count, "error left before saving") %>:</p>
+        <p><%= pluralize(@experiment_plate.errors.count, "error left before savin") %>:</p>
 
         <ul>
           <% @experiment_plate.errors.each do |error| %>
@@ -44,8 +44,8 @@
     <br>
     <br>
 
-    <%= link_to 'უკან დაბრუნება',root_url, class: 'btn btn-warning' %>
-    <%= f.button :submit, class: 'btn btn-primary', value: 'Create Experiment' %>
+    <%= link_to 'Back to Home',root_url, class: 'btn btn-warning' %>
+    <%= f.button :Create, class: 'btn btn-primary', value: 'Create Experiment' %>
   <%  end %>
 </div>
 

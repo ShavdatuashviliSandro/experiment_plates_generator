@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ExperimentPlateGenerator</title>
+    <title>Experiment Plate Generator - Home</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,45 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div class="header-block">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #1e4f9e !important">
+      <strong><%= link_to 'Laboratory', root_url, class: 'navbar-brand text-family', style: 'color:white;margin-left: 10px'%></strong>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="float: right !important;">
+          <li class="nav-item position-absolute" style="bottom: 10px; right: 10px">
+            <i class="bi bi-door-closed"><strong><%= link_to "Log Out", destroy_user_session_path, method: :delete %></strong></i>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="footer">
+      <br>
+      <small class="author">©Copyright: <a href="https://www.linkedin.com/in/sandro-shavdatuashvili-7b627b198/" target="_blank">Sandro Shavdatuashvili</a></small>
+    </div>
   </body>
 </html>
+
+<style>
+    .footer{
+        width: 100%;
+        height: 60px;
+        background-color: #1e4f9e;
+        color: white;
+        text-decoration: none;
+        position: fixed;
+        bottom: 0;
+    }
+    a{
+        color: white;
+    }
+    .author{
+        margin-left: 43%;
+    }
+</style>
