@@ -30,15 +30,18 @@
               <td class="align-middle"><%= experiment.plate_size %></td>
               <td class="align-middle"><%= experiment.sample %></td>
               <td class="align-middle"><%= experiment.reagent %>
-              <td class="align-middle"><%= experiment.number_of_replication%></td>
+              <td class="align-middle"><%= experiment.number_of_replication.to_s.split(',')%></td>
               <td class="align-middle"><%= link_to 'Generate plate', generate_experiment_plate_path(experiment), class: 'btn btn-warning' %></td>
-              <td class="align-middle"><%= link_to 'რედაქტირება', edit_generate_experiment_plate_path(experiment), class: 'btn btn-warning' %></td>
-              <td class="align-middle"><%= link_to 'წაშლა', @experiment_plate, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>
+<!--              <td class="align-middle"><%#= link_to 'რედაქტირება', edit_generate_experiment_plate_path(experiment), class: 'btn btn-warning' %></td>-->
+<!--              <td class="align-middle"><%#= link_to 'წაშლა', generate_experiment_plates_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>-->
             </tr>
           <% end %>
           </tbody>
         </table>
-        <%== pagy_bootstrap_nav(@pagy) %>
+        <div style="margin-left: 40%">
+            <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+
       </div>
     </div>
   </div>

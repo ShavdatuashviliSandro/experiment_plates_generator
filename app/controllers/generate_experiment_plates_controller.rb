@@ -1,16 +1,27 @@
 class GenerateExperimentPlatesController < ApplicationController
   before_action :init_service
+  attr_accessor :validation_confirms
 
   def index
     @pagy, @experiment_plates = pagy(ExperimentPlate.all)
   end
 
+  def destroy
+    @experiment_plate = ExperimentPlate.find(params[:id])
+    @experiment_plate.destroy
+  end
+
   def show
     @experiment_plate = ExperimentPlate.find(params[:id])
-    plate_size = 96
-    all_samples = [['სისხლი', 'უჯრედი', 'შარდი'], ['განავალი', 'ლორწო'],['ჩაი','ყავა']]
-    all_reagents = [['რკინა', 'ქლორი'], ['ვერცხლი', 'ნატრიუმი'],['მჟავა','პავიდლო']]
-    replicates = [12, 13,12]
+    # all_samples = [['სისხლი', 'უჯრედი', 'შარდი'], ['განავალი', 'ლორწო'], ['ჩაი', 'ყავა']]
+    all_reagents = [['რკინა', 'ქლორი'], ['ვერცხლი', 'ნატრიუმი'], ['მჟავა', 'პავიდლო']]
+
+    plate_size = return_data_for_plate_size(@experiment_plate)
+    all_samples = return_data_for_samples(@experiment_plate)
+    binding.pry
+    # all_reagents = return_data_for_reagents(@experiment_plate)
+    replicates = return_data_for_replicates(@experiment_plate)
+
     @result = generate_experiment_plate(plate_size, all_samples, all_reagents, replicates)
     @result
   end
@@ -28,45 +39,56 @@ class GenerateExperimentPlatesController < ApplicationController
     end
   end
 
-  def generate_experiment_plate(plate_size,all_samples,all_reagents,replicates)
+  def generate_experiment_plate(plate_size, all_samples, all_reagents, replicates)
     result = [
       []
     ]
-    # sets the quantity of plate row's and column's
+
     plate_number = 0
 
+    # sets the quantity of plate row's and column's
+
     # validations
+    @validation_confirms = []
+
     set_plate_size(plate_size)
-    parameters_are_valid?(all_samples,all_reagents,replicates)
-    reagents_are_unique?(all_reagents)
-    check_for_sample_repeating(all_samples)
+    @validation_confirms << parameters_are_valid?(all_samples, all_reagents, replicates)
+    @validation_confirms << reagents_are_unique?(all_reagents)
+    @validation_confirms << check_for_sample_repeating(all_samples)
 
-    @row_quantity.times do |index|
-      next unless index < all_samples.length
+    # if we have validate error in list
+    if !validation_confirms.any?(false)
+      @row_quantity.times do |index|
+        next unless index < all_samples.length
 
-      all_combinations = all_samples[index].product(all_reagents[index])
+        all_combinations = all_samples[index].product(all_reagents[index])
 
-      # fill rows
-      fill_empty_wells(all_combinations)
+        # fill rows
+        fill_empty_wells(all_combinations)
 
-      # write combinations based on number of replicates
-      replicates[index].times do # write combination in replicates time
-        result[plate_number] << all_combinations
-        if result[plate_number].length == @row_quantity
-          result << []
-          plate_number += 1
+        # write combinations based on number of replicates
+        replicates[index].times do
+          # write combination in replicates time
+          result[plate_number] << all_combinations
+          if result[plate_number].length == @row_quantity
+            result << []
+            plate_number += 1
+          end
         end
       end
+
+      # calculate empty rows and fill them with nills if empty row is equal or above 0
+      empty_rows = @row_quantity - result[0].length
+      empty_rows.times do
+        all_combinations = [nil] * @column_quantity
+        result[0] << all_combinations
+      end
+
+      result
+    else
+      render partial: 'layouts/error'
     end
 
-    # calculate empty rows and fill them with nills if empty row is equal or above 0
-    empty_rows = @row_quantity - result[0].length
-    empty_rows.times do
-      all_combinations = [nil] * @column_quantity
-      result[0] << all_combinations
-    end
-
-    result
 
   end
 
@@ -77,7 +99,7 @@ class GenerateExperimentPlatesController < ApplicationController
   end
 
   def experiment_params
-    params.require(:experiment_plate).permit(:plate_size, :samples, :reagents, :number_of_replication)
+    params.require(:experiment_plate).permit(:plate_size, :sample, :reagent, :number_of_replication)
   end
 
   def set_plate_size(plate_size)
@@ -91,8 +113,7 @@ class GenerateExperimentPlatesController < ApplicationController
     else
       @row_quantity = 0
       @column_quantity = 0
-      @error_text = 'We dont have plate of this size'
-      render partial: 'layouts/error'
+      validation_confirms << false
     end
   end
 
@@ -128,4 +149,28 @@ class GenerateExperimentPlatesController < ApplicationController
     is_unique_samples
   end
 
+  def return_data_for_replicates(experiment)
+    replicates = []
+    replicates_string = experiment.number_of_replication.split(',')
+    replicates_string.length.times do |replicate_number|
+      replicates << replicates_string[replicate_number].to_i
+    end
+    replicates
+  end
+
+  def return_data_for_plate_size(experiment)
+    experiment.plate_size
+  end
+
+  def return_data_for_samples(experiment)
+    samples = experiment.sample
+    all_samples = []
+    samples = samples.split(' | ')
+    samples.length.times do |index|
+      single_sample=samples[index].split
+      all_samples << single_sample
+    end
+    all_samples
+
+  end
 end

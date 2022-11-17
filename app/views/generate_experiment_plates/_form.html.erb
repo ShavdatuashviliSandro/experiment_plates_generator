@@ -1,11 +1,57 @@
 <br>
-<%= simple_form_for :experiment_plate do |f| %>
-  <%= f.input :plate_size, label: 'Plate Size'%>
-  <%= f.input :sample, label: 'Sample' %>
-  <%= f.input :reagent, label: 'Reagent'%>
-  <%= f.input :number_of_replication, label: 'Replicate' %>
-  <br>
-  <br>
-  <%= link_to 'უკან დაბრუნება',root_url, class: 'btn btn-warning' %>
-  <%= f.button :submit, class: 'btn btn-primary', value: 'Create Experiment' %>
-<%  end %>
+<div style="margin-left: 40%">
+  <%= form_for :experiment_plate, url: generate_experiment_plates_path, method: :post do |f| %>
+
+    <% if @experiment_plate.errors.any? %>
+      <div id="error_explanation">
+        <p><%= pluralize(@experiment_plate.errors.count, "error left before saving") %>:</p>
+
+        <ul>
+          <% @experiment_plate.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <br>
+      <%= f.label :plate_size, "Enter plate size" %>
+      <br>
+      <%= f.text_field :plate_size, label: 'Enter Size', placeholder: ''%>
+    </div>
+
+    <div class="field">
+      <br>
+      <%= f.label :sample, "Enter samples" %>
+      <br>
+      <%= f.text_field :sample, label: 'Sample' %>
+    </div>
+
+    <div class="field">
+      <br>
+      <%= f.label :reagent, "Enter reagents" %>
+      <br>
+      <%= f.text_field :reagent, label: 'Reagent'%>
+    </div>
+
+    <div class="field">
+      <br>
+      <%= f.label :number_of_replication, "Enter number of replications" %>
+      <br>
+      <%= f.text_field :number_of_replication, label: 'Replicate' %>
+    </div>
+
+    <br>
+    <br>
+
+    <%= link_to 'უკან დაბრუნება',root_url, class: 'btn btn-warning' %>
+    <%= f.button :submit, class: 'btn btn-primary', value: 'Create Experiment' %>
+  <%  end %>
+</div>
+
+
+<style>
+  #plate_size{
+      font-size: 100px;
+  }
+</style>
