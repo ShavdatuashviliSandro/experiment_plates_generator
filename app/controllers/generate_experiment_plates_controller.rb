@@ -17,11 +17,9 @@ class GenerateExperimentPlatesController < ApplicationController
     all_reagents = [['რკინა', 'ქლორი'], ['ვერცხლი', 'ნატრიუმი'], ['მჟავა', 'პავიდლო']]
 
     plate_size = return_data_for_plate_size(@experiment_plate)
-    all_samples = return_data_for_samples(@experiment_plate)
-    binding.pry
-    # all_reagents = return_data_for_reagents(@experiment_plate)
+    all_samples = return_data_for_experiment(@experiment_plate.sample)
+    all_reagents = return_data_for_experiment(@experiment_plate.reagent)
     replicates = return_data_for_replicates(@experiment_plate)
-
     @result = generate_experiment_plate(plate_size, all_samples, all_reagents, replicates)
     @result
   end
@@ -162,15 +160,15 @@ class GenerateExperimentPlatesController < ApplicationController
     experiment.plate_size
   end
 
-  def return_data_for_samples(experiment)
-    samples = experiment.sample
-    all_samples = []
-    samples = samples.split(' | ')
-    samples.length.times do |index|
-      single_sample=samples[index].split
-      all_samples << single_sample
+  def return_data_for_experiment(experiment)
+    experiment
+    data = []
+    experiment = experiment.split(' | ')
+    experiment.length.times do |index|
+      single_sample=experiment[index].split
+      data << single_sample
     end
-    all_samples
+    data
 
   end
 end
