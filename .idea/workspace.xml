@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="705a4d70-e25c-464d-b554-ec51f25d285c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/views/layouts/_error.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/generate_experiment_plates_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/generate_experiment_plates_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/generate_experiment_plates/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/services" />
+      <recent name="$PROJECT_DIR$/app/views/generate_experiment_plates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/layouts" />
       <recent name="$PROJECT_DIR$/app/views/generate_experiment_plates" />
     </key>
   </component>
@@ -170,7 +176,7 @@
       <workItem from="1668614853058" duration="1095000" />
       <workItem from="1668617760167" duration="5726000" />
       <workItem from="1668626853734" duration="3440000" />
-      <workItem from="1668679471105" duration="428000" />
+      <workItem from="1668679471105" duration="4971000" />
     </task>
     <servers />
   </component>

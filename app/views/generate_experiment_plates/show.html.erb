@@ -15,11 +15,11 @@
   <div class="card-body">
     <div class="row">
       <div class="col">
-        <h1>Plate 1</h1>
         <%plate_quantity = @result.length %>
         <%column_quantity = @result[0][0].length %>
 
         <% plate_quantity.times do |plate|%>
+          <h1>Plate <%=plate+1 %></h1>
           <table class="table table-bordered">
             <thead>
             <tr>
