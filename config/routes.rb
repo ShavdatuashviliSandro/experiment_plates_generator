@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   root to: 'generate_experiment_plates#index'
   resources :generate_experiment_plates
-  delete '/generate_experiment_plates/:id' => 'generate_experiment_plates#destroy'
+
+  match '*unmatched', to: 'application#route_not_found', via: :all
 end
