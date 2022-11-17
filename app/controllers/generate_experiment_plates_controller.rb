@@ -1,7 +1,6 @@
 class GenerateExperimentPlatesController < ApplicationController
   before_action :init_service
-  attr_accessor :validation_confirms
-
+  attr_reader :current_user
   def index
     @pagy, @experiment_plates = pagy(ExperimentPlate.all)
   end
@@ -28,7 +27,7 @@ class GenerateExperimentPlatesController < ApplicationController
   end
 
   def create
-    @experiment_plate = ExperimentPlate.create(experiment_params)
+    @experiment_plate = ExperimentPlate.new(experiment_params)
     if @experiment_plate.save
       redirect_to root_url, notice: '✓ Experiment created'
     else
@@ -54,14 +53,14 @@ class GenerateExperimentPlatesController < ApplicationController
     @validation_confirms << check_for_sample_repeating(all_samples)
 
     # if we have validate error in list
-    if !validation_confirms.any?(false)
+    if !@validation_confirms.any?(false)
       @row_quantity.times do |index|
         next unless index < all_samples.length
 
         all_combinations = all_samples[index].product(all_reagents[index])
 
         # fill rows
-        fill_empty_wells(all_combinations)
+        # fill_empty_wells(all_combinations)
 
         # write combinations based on number of replicates
         replicates[index].times do
@@ -95,7 +94,7 @@ class GenerateExperimentPlatesController < ApplicationController
   end
 
   def experiment_params
-    params.require(:experiment_plate).permit(:plate_size, :sample, :reagent, :number_of_replication)
+    params.require(:experiment_plate).permit(:plate_size, :sample, :reagent, :number_of_replication).with_defaults(user_id: User.first.id)
   end
 
   def set_plate_size(plate_size)
