@@ -15,11 +15,11 @@
   <div class="card-body">
     <div class="row">
       <div class="col">
-        <%plate_quantity = @result.length %>
-        <%column_quantity = @result[0][0].length %>
+        <% plate_quantity = @result.length %>
+        <% column_quantity = @result[0][0].length %>
 
-        <% plate_quantity.times do |plate|%>
-          <h1>Plate <%=plate+1 %></h1>
+        <% plate_quantity.times do |plate| %>
+          <h1>Plate <%= plate + 1 %></h1>
           <table class="table table-bordered">
             <thead>
             <tr>
@@ -32,10 +32,14 @@
             <tbody>
             <% @result[plate].length.times do |row_number| %>
               <tr>
-                <th scope="row"><%= row_number+1 %></th>
-                <%column_quantity.times do |column|%>
+                <th scope="row"><%= row_number + 1 %></th>
+                <% column_quantity.times do |column| %>
                   <th scope="row">
-                    <%=@result[plate][row_number][column] %>
+                    <% if @result[plate][row_number][column].present? %>
+                      <%= @result[plate][row_number][column].join(' X ') %>
+                    <% else %>
+                      X
+                    <% end %>
                   </th>
                 <% end %>
               </tr>

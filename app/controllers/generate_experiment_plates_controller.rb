@@ -13,7 +13,6 @@ class GenerateExperimentPlatesController < ApplicationController
     replicates = [12, 13,12]
     @result = generate_experiment_plate(plate_size, all_samples, all_reagents, replicates)
     @result
-    binding.pry
   end
 
   def new
@@ -42,7 +41,6 @@ class GenerateExperimentPlatesController < ApplicationController
     reagents_are_unique?(all_reagents)
     check_for_sample_repeating(all_samples)
 
-    binding.pry
     @row_quantity.times do |index|
       next unless index < all_samples.length
 
