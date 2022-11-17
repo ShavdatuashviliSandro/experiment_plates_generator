@@ -28,7 +28,7 @@ class GenerateExperimentPlatesController < ApplicationController
   end
 
   def create
-    @experiment_plate = ExperimentPlate.new(experiment_params)
+    @experiment_plate = ExperimentPlate.create(experiment_params)
     if @experiment_plate.save
       redirect_to root_url, notice: '✓ Experiment created'
     else

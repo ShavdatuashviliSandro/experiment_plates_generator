@@ -1,51 +1,54 @@
 <br>
-<div style="margin-left: 40%">
+<div style="margin-left: 35%">
   <%= form_for :experiment_plate, url: generate_experiment_plates_path, method: :post do |f| %>
 
     <% if @experiment_plate.errors.any? %>
       <div id="error_explanation">
-        <p><%= pluralize(@experiment_plate.errors.count, "error left before savin") %>:</p>
-
-        <ul>
+        <p>We have <%=@experiment_plate.errors.count%> errors before saving the experiment:</p>
+        <ul style="color: darkred">
           <% @experiment_plate.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
       </div>
     <% end %>
-    <div class="field">
-      <br>
-      <%= f.label :plate_size, "Enter plate size" %>
-      <br>
-      <%= f.text_field :plate_size, label: 'Enter Size', placeholder: ''%>
+    <div style="margin-left: 3px">
+      <div class="field">
+        <br>
+        <%= f.label :plate_size, "Enter plate size" %>
+        <br>
+        <%list = [96,384] %>
+        <%= f.select(:plate_size, list) %>
+      </div>
+
+      <div class="field">
+        <br>
+        <%= f.label :sample, "Enter samples" %>
+        <br>
+        <%= f.text_field :sample, label: 'Sample' %>
+      </div>
+
+      <div class="field">
+        <br>
+        <%= f.label :reagent, "Enter reagents" %>
+        <br>
+        <%= f.text_field :reagent, label: 'Reagent'%>
+      </div>
+
+      <div class="field">
+        <br>
+        <%= f.label :number_of_replication, "Enter number of replications" %>
+        <br>
+        <%= f.text_field :number_of_replication, label: 'Replicate' %>
+      </div>
     </div>
 
-    <div class="field">
-      <br>
-      <%= f.label :sample, "Enter samples" %>
-      <br>
-      <%= f.text_field :sample, label: 'Sample' %>
-    </div>
-
-    <div class="field">
-      <br>
-      <%= f.label :reagent, "Enter reagents" %>
-      <br>
-      <%= f.text_field :reagent, label: 'Reagent'%>
-    </div>
-
-    <div class="field">
-      <br>
-      <%= f.label :number_of_replication, "Enter number of replications" %>
-      <br>
-      <%= f.text_field :number_of_replication, label: 'Replicate' %>
-    </div>
 
     <br>
     <br>
 
-    <%= link_to 'Back to Home',root_url, class: 'btn btn-warning' %>
-    <%= f.button :Create, class: 'btn btn-primary', value: 'Create Experiment' %>
+    <%= link_to 'Home Page ',root_url, class: 'btn btn-dark' %>
+    <%= f.button :'Add Experiment', class: 'btn btn-primary', value: 'Create Experiment' %>
   <%  end %>
 </div>
 
