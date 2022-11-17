@@ -33,9 +33,9 @@
             <% @result[plate].length.times do |row_number| %>
               <tr>
                 <th scope="row"><%= row_number+1 %></th>
-                <%column_quantity.times do %>
+                <%column_quantity.times do |column|%>
                   <th scope="row">
-                    სისხლი X შარდი
+                    <%=@result[plate][row_number][column] %>
                   </th>
                 <% end %>
               </tr>
