@@ -7,8 +7,8 @@ class GenerateExperimentPlatesController < ApplicationController
 
   def show
     @result = @experiment_plates_service.generate_plate
-  # rescue StandardError
-  #   render partial: 'layouts/error'
+  rescue StandardError
+    render partial: 'layouts/error'
   end
 
   def new

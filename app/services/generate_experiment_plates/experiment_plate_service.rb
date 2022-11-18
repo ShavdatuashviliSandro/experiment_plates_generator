@@ -104,30 +104,29 @@ module GenerateExperimentPlates
 
       # sets rows and columns quantity and checks for validations
       @validation_confirms = []
-
-      set_plate_size(plate_size)
-
-      @validation_confirms << parameters_are_valid?(all_samples, all_reagents, replicates)
-      @validation_confirms << reagents_are_unique?(all_reagents)
-      @validation_confirms << check_for_sample_repeating(all_samples)
+      check_for_validations(plate_size, all_samples, all_reagents, replicates)
 
       # raises error and renders error page if we have validate error in list
       unless @validation_confirms.none?(false)
         raise 'You have experiment with wrong data, update them or create new one.'
       end
 
+      # starting loop for filling rows
       @row_quantity.times do |index|
+        # loop is starting while simples length is smaller than rows in tables
         next unless index < all_samples.length
 
+        # every possible combination of reagents and samples
         all_combinations = all_samples[index].product(all_reagents[index])
 
-        # fill rows
+        # fill row's empty wells
         fill_empty_wells(all_combinations)
 
         # write combinations based on number of replicates
         replicates[index].times do
-          # write combination in replicates time
+          # write combination in plate
           result[plate_number] << all_combinations
+          # if plate rows is full creating new plate
           if result[plate_number].length == @row_quantity
             result << []
             plate_number += 1
@@ -145,6 +144,13 @@ module GenerateExperimentPlates
       result
     end
 
+    def check_for_validations(plate_size, all_samples, all_reagents, replicates)
+      set_plate_size(plate_size)
+      @validation_confirms << parameters_are_valid?(all_samples, all_reagents, replicates)
+      @validation_confirms << reagents_are_unique?(all_reagents)
+      @validation_confirms << check_for_sample_repeating(all_samples)
+    end
+
     def fill_empty_wells(all_combinations)
       empty_well_quantity = @column_quantity - all_combinations.length
       empty_well_quantity.times do
@@ -157,12 +163,16 @@ module GenerateExperimentPlates
     end
 
     def reagents_are_unique?(all_reagents)
-      list = []
+      reagents = []
+
+      # push every element of reagents in array
       reagents_quantity = all_reagents.length
       reagents_quantity.times do |index|
-        list += all_reagents[index]
+        reagents += all_reagents[index]
       end
-      list.length == list.uniq.length
+
+      # check with uniqueness
+      reagents.length == reagents.uniq.length
     end
 
     def check_for_sample_repeating(all_samples)
@@ -177,14 +187,4 @@ module GenerateExperimentPlates
       is_unique_samples
     end
   end
-
-  # def check_for_validations(plate_size, all_samples, all_reagents, replicates)
-  #   @validation_confirms = []
-  #
-  #   set_plate_size(plate_size)
-  #
-  #   @validation_confirms << parameters_are_valid?(all_samples, all_reagents, replicates)
-  #   @validation_confirms << reagents_are_unique?(all_reagents)
-  #   @validation_confirms << check_for_sample_repeating(all_samples)
-  # end
 end
