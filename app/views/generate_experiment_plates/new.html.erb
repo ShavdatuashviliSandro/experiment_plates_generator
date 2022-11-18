@@ -28,6 +28,8 @@
         <%= f.text_field :sample, label: 'Sample' %>
         <br>
         <small style="color: grey">⚠ Split samples with space button and add new sample combination with / symbol</small>
+        <br>
+        <small style="color: grey">example: Blood Cells / Zinc Iron</small>
       </div>
 
       <div class="field">
@@ -37,6 +39,8 @@
         <%= f.text_field :reagent, label: 'Reagent'%>
         <br>
         <small style="color: grey">⚠ Split reagents with space button and add new sample combination with / symbol</small>
+        <br>
+        <small style="color: grey">example: Sample-X Sample-Y / Sample-Z</small>
       </div>
 
       <div class="field">
@@ -46,6 +50,9 @@
         <%= f.text_field :number_of_replication, label: 'Replicate' %>
         <br>
         <small style="color: grey">⚠ Split replicate numbers with comma (,)</small>
+        <br>
+        <small style="color: grey">example: 3,2</small>
+
       </div>
     </div>
 
