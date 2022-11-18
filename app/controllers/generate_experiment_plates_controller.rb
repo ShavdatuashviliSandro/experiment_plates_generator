@@ -7,9 +7,8 @@ class GenerateExperimentPlatesController < ApplicationController
 
   def show
     @result = @experiment_plates_service.generate_plate
-
-  rescue StandardError
-    render partial: 'layouts/error'
+  # rescue StandardError
+  #   render partial: 'layouts/error'
   end
 
   def new
@@ -34,6 +33,7 @@ class GenerateExperimentPlatesController < ApplicationController
 
   def destroy
     @experiment_plate = @experiment_plates_service.delete
+
     redirect_to root_url, notice: '✓ Experiment deleted'
   end
 
@@ -42,5 +42,4 @@ class GenerateExperimentPlatesController < ApplicationController
   def init_service
     @experiment_plates_service = GenerateExperimentPlates::ExperimentPlateService.new(User.first, params)
   end
-
 end

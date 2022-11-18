@@ -6,5 +6,4 @@ class ApplicationController < ActionController::Base
   def route_not_found
     render partial: 'layouts/page_not_found'
   end
-
 end

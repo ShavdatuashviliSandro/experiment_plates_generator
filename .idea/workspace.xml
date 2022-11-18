@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="705a4d70-e25c-464d-b554-ec51f25d285c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/experiment_plate_generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/experiment_plate_generator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/generate_experiment_plates_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/generate_experiment_plates_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/generate_experiment_plates/experiment_plate_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/generate_experiment_plates/experiment_plate_service.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_error.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_error.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/generate_experiment_plates/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/generate_experiment_plates/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +183,7 @@
       <workItem from="1668626853734" duration="3440000" />
       <workItem from="1668679471105" duration="4971000" />
       <workItem from="1668689046622" duration="29847000" />
-      <workItem from="1668762011192" duration="8086000" />
+      <workItem from="1668762011192" duration="12670000" />
     </task>
     <servers />
   </component>

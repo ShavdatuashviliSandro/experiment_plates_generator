@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/sandro/Desktop/Solviks_assignment/experiment_plate_generator/app/services/generate_experiment_plates/experiment_plate_service.rb:106 GenerateExperimentPlates::ExperimentPlateService#generate_experiment_plate:
+
+    [1;34m101[0m:         []
+    [1;34m102[0m:       ]
+    [1;34m103[0m:       plate_number = [1;34m0[0m
+    [1;34m104[0m: 
+    [1;34m105[0m:       [1;34m# sets rows and columns quantity and checks for validations[0m
+ => [1;34m106[0m:       binding.pry
+    [1;34m107[0m:       check_for_validations(plate_size, all_samples, all_reagents, replicates)
+    [1;34m108[0m: 
+    [1;34m109[0m:       [1;34m# raises error and renders error page if we have validate error in list[0m
+    [1;34m110[0m:       [32munless[0m @validation_confirms.none?([1;36mfalse[0m)
+    [1;34m111[0m:         raise [31m[1;31m'[0m[31mYou have experiment with wrong data, update them or create new one.[1;31m'[0m[31m[0m
+

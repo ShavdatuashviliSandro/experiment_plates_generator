@@ -26,6 +26,8 @@
         <%= f.label :sample, "Enter samples" %>
         <br>
         <%= f.text_field :sample, label: 'Sample' %>
+        <br>
+        <small style="color: grey">⚠ Split samples with space button and add new sample combination with / symbol</small>
       </div>
 
       <div class="field">
@@ -33,6 +35,8 @@
         <%= f.label :reagent, "Enter reagents" %>
         <br>
         <%= f.text_field :reagent, label: 'Reagent'%>
+        <br>
+        <small style="color: grey">⚠ Split reagents with space button and add new sample combination with / symbol</small>
       </div>
 
       <div class="field">
@@ -40,6 +44,8 @@
         <%= f.label :number_of_replication, "Enter number of replications" %>
         <br>
         <%= f.text_field :number_of_replication, label: 'Replicate' %>
+        <br>
+        <small style="color: grey">⚠ Split replicate numbers with space button</small>
       </div>
     </div>
 
@@ -48,7 +54,7 @@
     <br>
 
     <%= link_to 'Home Page ',root_url, class: 'btn btn-dark' %>
-    <%= f.button :submit, class: 'btn btn-primary', value: 'Create Experiment' %>
+    <%= f.button "Add Experiment", class: 'btn btn-primary', value: 'Create Experiment' %>
   <%  end %>
 </div>
 
