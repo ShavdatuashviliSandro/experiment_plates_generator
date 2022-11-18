@@ -13,17 +13,18 @@
 <br>
 <br>
 <br>
-<div class="col-md-4 border shadow-lg" style="margin-left: 32%;background-color: cornflowerblue;border-radius: 4px; color: white">
-  <h1 class="text-family" style="margin-left: 24%;margin-top: 2%; color: black">Doctor Page</h1>
-  <strong style="margin-left: 34%" class="text-family">Sign in laboratory</strong>
+<div class="col-md-4 border shadow-lg" style="margin-left: 32%;background-color: #1e4f9e;border-radius: 4px; color: white">
+  <h2 class="text-family" style="margin-left: 28%;margin-top: 2%;">Doctor Page</h2>
+  <small style="margin-left: 34%" class="text-family">Sign in laboratory</small>
   <div style="margin-top: 2%;margin-left: 4%">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group" style="width: 60%;margin-left: 16%">
-        <%= f.label :email, class: 'text-family', style: 'font-size: 15px' %>
+        <strong><%= f.label :email, class: 'text-family', style: 'font-size: 15px' %></strong>
         <%= f.email_field :email, autofocus: true, autocomplete: 'email',class: 'form-control text-family shadow'%>
       </div>
       <div class="form-group text-family" style="width: 60%;margin-left: 16%">
-        <%= f.label :password, value: 'Password', style: 'font-size: 15px' %>
+        <strong><%= f.label :password, value: 'Password', style: 'font-size: 15px' %></strong>
+
         <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control text-family shadow'%>
       </div>
       <div class="form-group" style="margin-top: 4%">
