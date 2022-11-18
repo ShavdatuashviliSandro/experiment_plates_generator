@@ -23,31 +23,31 @@
     <div class="row">
       <div class="col">
         <% plate_quantity = @result.length %>
+        <%@column_quantity = @result[0][0].length %>
 
         <% plate_quantity.times do |plate| %>
-          <h1><%=return_plate_number(plate) %></h1>
+          <h1><%= return_plate_number(plate) %></h1>
           <table class="table table-bordered">
             <thead>
             <tr>
               <th scope="col"></th>
               <% @column_quantity.times do |column_number| %>
-                <th scope="col"><%=return_columns(column_number) %></th>
+                <th scope="col"><%= return_columns(column_number) %></th>
               <% end %>
             </tr>
             </thead>
             <tbody>
-            <%@row_quantity = @result[plate].length %>
+            <% @row_quantity = @result[plate].length %>
             <% @row_quantity.times do |row_number| %>
               <tr>
                 <th scope="row"><%= row_number + 1 %></th>
                 <% @column_quantity.times do |column| %>
                   <th scope="row">
-                    <%=fill_row_wells(plate,row_number,column) %>
+                    <%= fill_row_wells(plate, row_number, column) %>
                   </th>
                 <% end %>
               </tr>
             <% end %>
-
             </tbody>
           </table>
           <br>

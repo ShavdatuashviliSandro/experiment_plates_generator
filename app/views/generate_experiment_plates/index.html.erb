@@ -32,8 +32,8 @@
               <td class="align-middle"><%= experiment.reagent %>
               <td class="align-middle"><%= experiment.number_of_replication%></td>
               <td class="align-middle"><%= link_to 'Generate plate', generate_experiment_plate_path(experiment), class: 'btn btn-outline-primary' %></td>
-<!--              <td class="align-middle"><%#= link_to 'რედაქტირება', edit_generate_experiment_plate_path(experiment), class: 'btn btn-warning' %></td>-->
-<!--              <td class="align-middle"><%#= link_to 'წაშლა', generate_experiment_plates_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>-->
+              <td class="align-middle"><%= link_to 'Edit', edit_generate_experiment_plate_path(experiment), class: 'btn btn-warning' %></td>
+              <td class="align-middle"><%= link_to 'Delete', generate_experiment_plate_path(experiment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></td>
             </tr>
           <% end %>
           </tbody>

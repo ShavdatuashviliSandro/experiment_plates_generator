@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root to: 'generate_experiment_plates#index'
   resources :generate_experiment_plates
 
-  match '*unmatched', to: 'application#route_not_found', via: :all
+  # match '*unmatched', to: 'application#route_not_found', via: :all
 end
