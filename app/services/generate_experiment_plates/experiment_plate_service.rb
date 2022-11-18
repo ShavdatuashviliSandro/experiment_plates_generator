@@ -107,9 +107,7 @@ module GenerateExperimentPlates
       check_for_validations(plate_size, all_samples, all_reagents, replicates)
 
       # raises error and renders error page if we have validate error in list
-      unless @validation_confirms.none?(false)
-        raise 'You have experiment with wrong data, update them or create new one.'
-      end
+      raise 'You have experiment with wrong data' unless @validation_confirms.none?(false)
 
       # starting loop for filling rows
       @row_quantity.times do |index|

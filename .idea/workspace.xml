@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="705a4d70-e25c-464d-b554-ec51f25d285c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/generate_experiment_plates/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/generate_experiment_plates/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/generate_experiment_plates/experiment_plate_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/generate_experiment_plates/experiment_plate_service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/_error.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_error.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,24 +22,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/sandro/Desktop/evex_billing&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/home/sandro/.asdf/installs/nodejs/12.13.1/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.JavaScript&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/sandro/Desktop/Solviks_assignment/experiment_plate_generator",
+    "nodejs_interpreter_path": "/home/sandro/.asdf/installs/nodejs/12.13.1/bin/node",
+    "nodejs_package_manager_path": "npm",
+    "ruby.rails.projectView.checked": "true",
+    "settings.editor.selected.configurable": "Settings.JavaScript",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/services" />
@@ -175,7 +177,8 @@
       <workItem from="1668626853734" duration="3440000" />
       <workItem from="1668679471105" duration="4971000" />
       <workItem from="1668689046622" duration="29847000" />
-      <workItem from="1668762011192" duration="16751000" />
+      <workItem from="1668762011192" duration="17100000" />
+      <workItem from="1668783451364" duration="724000" />
     </task>
     <servers />
   </component>
