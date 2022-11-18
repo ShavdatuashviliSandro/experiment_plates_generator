@@ -1,4 +1,60 @@
 <br>
-<h1 style="margin-left: 30%">Create new experiment</h1>
+<div style="margin-left: 35%">
+  <%= form_for :experiment_plate, url: generate_experiment_plates_path, method: :post do |f| %>
 
-<%= render 'form', experiment_plate: @experiment_plate %>
+    <% if @experiment_plate.errors.any? %>
+      <div id="error_explanation">
+        <p>We have <%=@experiment_plate.errors.count%> errors before saving the experiment:</p>
+        <ul style="color: darkred">
+          <% @experiment_plate.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div style="margin-left: 3px">
+      <div class="field">
+        <br>
+        <%= f.label :plate_size, "Enter plate size" %>
+        <br>
+        <%list = [96,384] %>
+        <%= f.select(:plate_size, list) %>
+      </div>
+
+      <div class="field">
+        <br>
+        <%= f.label :sample, "Enter samples" %>
+        <br>
+        <%= f.text_field :sample, label: 'Sample' %>
+      </div>
+
+      <div class="field">
+        <br>
+        <%= f.label :reagent, "Enter reagents" %>
+        <br>
+        <%= f.text_field :reagent, label: 'Reagent'%>
+      </div>
+
+      <div class="field">
+        <br>
+        <%= f.label :number_of_replication, "Enter number of replications" %>
+        <br>
+        <%= f.text_field :number_of_replication, label: 'Replicate' %>
+      </div>
+    </div>
+
+
+    <br>
+    <br>
+
+    <%= link_to 'Home Page ',root_url, class: 'btn btn-dark' %>
+    <%= f.button :submit, class: 'btn btn-primary', value: 'Create Experiment' %>
+  <%  end %>
+</div>
+
+
+<style>
+    #plate_size{
+        font-size: 100px;
+    }
+</style>

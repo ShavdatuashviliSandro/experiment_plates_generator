@@ -135,7 +135,7 @@ module GenerateExperimentPlates
 
         result
       else
-        raise 'ValidationError'
+        raise 'You have experiment with wrong data, update them or create new one.'
       end
 
     end
